@@ -1,0 +1,21 @@
+
+# .gitignore
+
+```gitignore
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+data/combined_statcast_data.csv
+data/*.zip
+data/*.tar.gz
+data/*.parquet
+
+# OS-specific
+.DS_Store
+Thumbs.db
