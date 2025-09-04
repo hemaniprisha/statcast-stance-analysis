@@ -18,9 +18,9 @@ Technical Approach:
 - Robust data preprocessing pipeline with comprehensive error handling
 - Statistical validation ensuring reproducibility across dataset sizes
 
-Author: [Your Name]
+Author: Prisha Hemani
 Version: 2.0
-Last Updated: [Date]
+Last Updated: 07/09/2025
 """
 
 import pandas as pd
