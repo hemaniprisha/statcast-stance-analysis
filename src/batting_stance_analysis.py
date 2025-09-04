@@ -870,7 +870,7 @@ def main():
             - df: Processed DataFrame used for modeling and analysis.
             - stance_analysis: Per-cluster performance summary DataFrame.
     """
-    logger.info("Starting improved baseball analytics system...")
+    logger.info("Starting baseball analytics system...")
     
     try:
         # Initialize system
@@ -955,7 +955,7 @@ def main():
         y_test_tensor = torch.tensor(y_test, dtype=torch.float32)
         
         # Train model
-        logger.info("Training improved classification model...")
+        logger.info("Training classification model...")
         model, train_losses, val_losses = train_improved_model(
             X_train_tensor, y_train_tensor, X_val_tensor, y_val_tensor,
             input_size=X_train_scaled.shape[1], num_classes=3
