@@ -39,7 +39,6 @@ This project implements a comprehensive machine learning system that predicts ML
 │   ├── batting-stance.csv                  # Batting stance measurements (~343 KB)
 │   ├── sample_statcast.csv                 # Sample Statcast data (~8.8 MB)
 │   └── combined_statcast_data.csv          # Full dataset (~422 MB) - download separately
-├── results/                                # Model outputs and visualizations
 ├── requirements.txt                        # Python dependencies
 ├── BaseballStanceAnalysisOutcome.docx      # Summary of output, results, and insights
 └── README.md                              # This file
