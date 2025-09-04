@@ -4,3 +4,5 @@ scikit-learn
 torch
 scipy
 jupyter
+matplotlib
+seaborn
