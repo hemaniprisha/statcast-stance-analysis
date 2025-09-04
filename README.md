@@ -105,7 +105,7 @@ INFO: Stance Analysis Results:
               ...
 ```
 
-## echnical Implementation
+## Technical Implementation
 
 ### **Machine Learning Architecture**
 - **Model Type**: Feedforward Neural Network 
@@ -212,10 +212,6 @@ Contributions welcome! Areas for improvement:
 - Alternative clustering algorithms for stance classification
 - Integration with video analysis systems
 - Expansion to other baseball metrics
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
