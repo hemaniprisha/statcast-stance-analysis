@@ -2,6 +2,8 @@
 
 This project implements a comprehensive machine learning system that predicts MLB pitch outcomes and identifies strategic batting stance vulnerabilities using Statcast data and biomechanical batting stance measurements.
 
+Note: This project was recently updated with improved modeling and results. Earlier versions achieved different performance metrics and a different technical framework (see commit history), but the current version reflects the most accurate implementation.
+
 ## Project Overview
 
 **Key Achievements:**
