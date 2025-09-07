@@ -1,11 +1,11 @@
-# Advanced Baseball Analytics: Pitch Outcome Prediction & Batting Stance Classification
-# Archived Repository
+# IMPORTANT NOTICE: Archived Repository
 
 This is **not the most current version** of the project.  
 The updated and actively maintained version can be found here:  
 ➡[Updated Batting Stance Analysis](https://github.com/hemaniprisha/updated-battingstance-analysis)
 
-https://github.com/hemaniprisha/updated-battingstance-analysis
+_____________________________________________________________________________________________________________
+# Advanced Baseball Analytics: Pitch Outcome Prediction & Batting Stance Classification
 
 This project implements a comprehensive machine learning system that predicts MLB pitch outcomes and identifies strategic batting stance vulnerabilities using Statcast data and biomechanical batting stance measurements.
 
