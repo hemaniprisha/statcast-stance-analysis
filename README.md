@@ -2,6 +2,9 @@
 
 This project implements a comprehensive machine learning system that predicts MLB pitch outcomes and identifies strategic batting stance vulnerabilities using Statcast data and biomechanical batting stance measurements.
 
+
+Update: Organized project into intuitive file structure, added visualization module (09/07/2025) 
+
 Note: This project was recently updated with improved modeling and results. Earlier versions achieved different performance metrics and a different technical framework (see commit history), but the current version reflects the most accurate implementation.
 
 ## Project Overview
@@ -35,17 +38,21 @@ Note: This project was recently updated with improved modeling and results. Earl
 ## Project Structure
 
 ```
-├── src/
-│   ├── batting_stance_analysis.py          # Main analysis pipeline
-├── data/
-│   ├── batting-stance.csv                  # Batting stance measurements (~343 KB)
-│   ├── sample_statcast.csv                 # Sample Statcast data (~8.8 MB)
-│   └── combined_statcast_data.csv          # Full dataset (~422 MB) - download separately
-├── requirements.txt                        # Python dependencies
-├── BaseballStanceAnalysisOutcome.docx      # Summary of output, results, and insights
-└── README.md                              # This file
+baseball-analytics/
+├── README.md                    # Project documentation
+├── requirements.txt             # Python dependencies
+├── main.py                     # Main execution script
+├── config.py                   # Configuration and constants
+├── data/                       # Input data directory
+│   ├── sample_statcast.csv     # Pitch-by-pitch data
+│   └── batting-stance.csv      # Batting stance measurements
+└── src/                        # Core functionality
+    ├── __init__.py            # Package initialization
+    ├── data_processing.py     # Data loading and preprocessing
+    ├── models.py              # Neural network models
+    ├── analysis.py            # Clustering and performance analysis
+    └── visualization.py       # Plotting and export functions```
 ```
-
 ## Data Sources
 
 ### **batting-stance.csv** (~343 KB)
@@ -65,7 +72,27 @@ Note: This project was recently updated with improved modeling and results. Earl
 
 > **Note:** By default, the system uses `sample_statcast.csv` for faster development. Switch to the full dataset for comprehensive analysis and production deployment.
 
-## Quick Start
+## Data Sources & Requirements
+Statcast Data (sample_statcast.csv)
+Required columns:
+
+Identifiers: player_name, game_date, description
+Physics: release_speed, release_pos_x/z, plate_x/z, pfx_x/z
+Context: pitch_type, zone, release_spin_rate, release_extension
+Situational: balls, strikes (optional but recommended)
+
+Stance Data (batting-stance.csv)
+Required columns:
+
+Identity: name (format: "Last, First")
+Temporal: year, api_game_date_month_mm
+Positioning: avg_batter_y_position, avg_batter_x_position
+Geometry: avg_foot_sep, avg_stance_angle
+Biomechanics: avg_intercept_y_vs_batter, avg_intercept_y_vs_plate
+Handedness: bat_side
+
+
+
 
 ### 1. Environment Setup
 ```bash
@@ -85,12 +112,43 @@ pip install -r requirements.txt
 ### 2. Run Analysis
 ```bash
 # Quick test with sample data
-python src/batting_stance_analysis.py
+python main.py
 
 # Full analysis (requires complete dataset)
 # First download combined_statcast_data.csv to data/ directory
-python src/batting_stance_analysis.py
+# Change line 75 in data_processing.py to "combined_statcast_data.csv"
+python main.py
 ```
+This executes the full pipeline:
+
+1. Data loading and temporal matching
+2. Feature engineering (40+ features)
+3. Advanced imputation and preprocessing
+4. Stance clustering (5 archetypes)
+4. Neural network training with early stopping
+6. Model evaluation and performance metrics
+7. Strategic analysis and recommendations
+8. Visualization generation and results export
+
+
+```bash
+# Advanced Usage 
+from src import ImprovedBaseballSystem
+from src.analysis import get_player_stance_recommendation
+
+# Initialize system
+system = ImprovedBaseballSystem()
+
+# Run full pipeline
+system, model, results, data, stance_analysis = main()
+
+# Get player-specific recommendations
+recommendation = get_player_stance_recommendation("Olson, Matt", data, stance_analysis)
+print(recommendation)
+
+# Access trained model and scaler
+predictions = system.model(new_data_tensor)
+scaled_features = system.scaler.transform(raw_features)
 
 ### 3. Expected Output
 ```
@@ -122,7 +180,7 @@ INFO: Stance Analysis Results:
 - **Derived Metrics**: Effective velocity, stance ratios, movement combinations
 
 ### **Data Processing**
-- **Temporal Matching**: Algorithm matches pitch events to stance measurements
+- **Temporal Matching**: Algorithm matches pitch events to stance measurements using temporal matching
 - **Advanced Imputation**: Multi-level fallback strategy (player → pitch-type → global)
 - **Robust Validation**: Stratified splits, cross-validation, reproducibility testing
 
