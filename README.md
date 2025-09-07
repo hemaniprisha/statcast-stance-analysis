@@ -2,7 +2,7 @@
 
 This is **not the most current version** of the project.  
 The updated and actively maintained version can be found here:  
-➡[Updated Batting Stance Analysis](https://github.com/hemaniprisha/updated-battingstance-analysis)
+[Updated Batting Stance Analysis](https://github.com/hemaniprisha/updated-battingstance-analysis)
 
 _____________________________________________________________________________________________________________
 # Advanced Baseball Analytics: Pitch Outcome Prediction & Batting Stance Classification
